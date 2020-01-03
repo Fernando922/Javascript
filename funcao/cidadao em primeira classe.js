@@ -1,7 +1,10 @@
 //função em JS é First-Class Object (Citizens)
 //Higher-order function
 
-//criar de forma literal
+
+//toda função sempre retorna algo, que for undefined
+
+//criar de forma literal 
 function fun1(){}
 
 
@@ -14,10 +17,17 @@ const array = [function(a,b) {return a+b}, fun1, fun2]
 
 const obj = {}
 obj.falar = function () {return 'opa'}
+
+
+const obj2 = {
+  falar(){
+    console.log('falando')
+  }
+}
+obj2.falar()
 console.log(obj.falar())
 
-//passar função como parametro
-
+//passar função como parametro e executar logo em seguida
 function run(fun){
   fun()
 }
