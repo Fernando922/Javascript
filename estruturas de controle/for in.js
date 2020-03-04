@@ -1,7 +1,7 @@
 const notas = [2, 4, 323, 54, 4, 2];
 
 for (let i in notas) {
-  console.log(notas[i]);
+  console.log(`${i} - ${notas[i]}`);
 }
 
 const pessoa = {
