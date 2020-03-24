@@ -1,0 +1,12 @@
+{
+  "name": "agendarTarefa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "node-schedule": "^1.3.2"
+  }
+}
