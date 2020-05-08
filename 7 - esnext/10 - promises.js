@@ -19,3 +19,23 @@ falarDepoisDe(3, 'Que legal!!')
 
 
 //se  nao chamar a função catch retornará um erro "Unhandled promise rejection"
+
+
+//outro exemplo:
+
+
+function api(email, password) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (password === 123456) {
+        reject("Senha incorreta!");
+      } else {
+        resolve(`O usuário ${email} está logado`);
+      }
+    }, 1500);
+  });
+}
+
+let res = api("dipaula018@gmail.com", 123456)
+  .then(console.log)
+  .catch(console.log);
