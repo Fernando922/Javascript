@@ -1,0 +1,90 @@
+<h1>Vídeo</h1>
+
+<video id="meuVideo" width="800" height="450" controls>
+  <source src="http://files.cod3r.com.br/curso-web/video.mp4" />
+  Seu browser não suporta a tag vídeo
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+  <div></div>
+</div>
+
+<div>
+  <button wm-play="meuVideo">Play</button>
+  <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<script>
+  //minha solução antes da correção
+
+  // const video = document.getElementById('meuVideo')
+  // const play = document.querySelector('[wm-play]')
+  // const pause = document.querySelector('[wm-pause]')
+  // const progresso = document.querySelector('[wm-progresso]')
+
+
+  // play.addEventListener('click', () => {
+  //   video.play()
+  // })
+
+  // pause.addEventListener('click', () => {
+  //   video.pause()
+  // })
+
+  // function getProgresso(){
+  //   const atual = video.currentTime
+  //   const total = video.duration
+
+  //   const progresso = (atual * 100) / total
+  //   return `${progresso}%`
+
+  // }
+
+  // function updateTime(e){
+  //   progresso.children[0].style.width = getProgresso()
+  // }
+
+  //solução com correção
+  function configurarVideo(id){
+    const video = document.getElementById(id)
+    video.oncontextmenu = () => false //impede o download (clique com botao direito)
+    
+
+    document.querySelector(`[wm-play=${id}]`).onclick = e => video.play()
+    document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+
+    setInterval(() => {
+      const percentual = (video.currentTime / video.duration) * 100
+
+      const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+      valorDiv.style.width = `${percentual}%`
+
+
+      valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+    },500)
+  }
+
+  configurarVideo('meuVideo')
+
+
+</script>
+
+<style>
+  .progresso {
+    height: 20px;
+    width: 500px;
+    border: 1px solid #444;
+    margin: 20px 0 20px 0;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .progresso > div {
+    background-color: red;
+    color: #fff;
+    height: 100%;
+    text-align: right;
+    font-size: 14px;
+    width: 0%;
+  }
+</style>
