@@ -1,0 +1,65 @@
+<h1>Formulário</h1>
+
+<!-- O valor a ser enviado para o form deve ter o atributo name -->
+<form method="POST">
+  <input type="hidden" name="id" value="3">
+  <input type="text" name="nome" placeholder="Digite seu nome" />
+  <input type="password" name="senha" placeholder="Digite sua senha" />
+  <textarea
+    name="bio"
+    cols="30"
+    rows="10"
+    placeholder="Digite sua Bio"
+  ></textarea>
+  <div>
+    <!-- um substitui o valor do outro pq compartilhar o mesmo name -->
+    <input type="radio" name="tipo" value="admin" id="admin" /><label
+      for="admin"
+      >Admin</label
+    >
+    <input type="radio" name="tipo" value="regular" id="regular" /><label
+      for="regular"
+      >Regular</label
+    >
+    <input type="radio" name="tipo" value="professor" id="professor" /><label
+      for="professor"
+      >Professor</label
+    >
+  </div>
+  <div><input type="checkbox" name="ativo" />Ativo</div>
+
+  <select name="estado">
+    <option value="">Selecione</option>
+    <option value="ac">Acre</option>
+    <option value="sp">São Paulo</option>
+    <option value="ba">Bahia</option>
+    <option value="rn">Rio Grande do Norte</option>
+  </select>
+
+  <select name="interesses" multiple size="5">
+    <option value="js">Javascript</option>
+    <option value="java">Java</option>
+    <option value="php">Php</option>
+    <option value="python">Python</option>
+    <option value="c">C</option>
+    <option value="c++">C++</option>
+    <option value="c#">C#</option>
+  </select>
+
+  <button formaction="http://localhost:3333/usuarios">Incluir</button>
+  <button formaction="http://localhost:3333/usuarios/3">Alterar</button>
+</form>
+
+<style>
+  input,
+  textarea,
+  select {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: inline;
+  }
+</style>

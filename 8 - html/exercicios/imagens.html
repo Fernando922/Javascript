@@ -1,0 +1,119 @@
+<h1>Imagens</h1>
+
+<div wm-slider>
+  <p>
+    <img
+      src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+      alt="Praia"
+      height="342"
+      title="Praia de algum lugar que não faço idéia de onde é"
+    />
+  </p>
+
+  <p>
+    <img
+      src="http://files.cod3r.com.br/curso-web/imagem2.gif"
+      alt="Gif cod3r intro"
+      width="513"
+    />
+  </p>
+
+  <p class="circular">
+    <img
+      src="http://files.cod3r.com.br/curso-web/imagem3.png"
+      alt="Rio de Janeiro"
+      width="513"
+    />
+  </p>
+
+  <p class="texto">
+    <img
+      src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+      alt="Avatar"
+      height="50"
+    />
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat enim
+    suscipit praesentium doloribus rerum blanditiis, velit impedit animi, modi
+    porro at laborum excepturi sequi perferendis eaque esse nulla facere quo.
+    porro at laborum excepturi sequi perferendis eaque esse nulla facere quo.
+    porro at laborum excepturi sequi perferendis eaque esse nulla facere quo.
+    porro at laborum excepturi sequi perferendis eaque esse nulla facere quo.
+  </p>
+
+  <p class="cidade"></p>
+
+  <!-- abaixo se a primeira imagem (source) nao atender aos requisitos, a proxima imagem será chamada e assim por diante -->
+  <p>
+    <picture>
+      <source
+        srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+        media="(min-width: 600px)"
+      />
+      <img
+        src="http://files.cod3r.com.br/curso-web/logo-estreita.png"
+        alt="Logo"
+      />
+    </picture>
+  </p>
+</div>
+
+<style>
+  .slider {
+    border: 1px solid black;
+    width: 513px;
+  }
+
+  div {
+    height: 100px;
+    width: 100px;
+  }
+
+  p {
+    position: absolute;
+    display: none;
+  }
+
+  .circular {
+    width: 513px;
+    background-color: #444;
+  }
+
+  .texto {
+    width: 400px;
+  }
+
+  .texto img {
+    margin-right: 12px;
+  }
+
+  .cidade {
+    width: 513px;
+    height: 342px;
+    background-image: url("http://files.cod3r.com.br/curso-web/imagem4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 300%; /*zoom */
+  }
+</style>
+
+<script>
+  var slideIndex = 0;
+  var slides = document.getElementsByTagName("p");
+  showSlides();
+
+  function showSlides() {
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+      slides[slides.length - 1].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "inline";
+
+    if (slideIndex >= 2) {
+      slides[slideIndex - 2].style.display = "none";
+    }
+
+    setTimeout(showSlides, 2000);
+  }
+</script>

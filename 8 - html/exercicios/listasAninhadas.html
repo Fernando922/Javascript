@@ -1,0 +1,191 @@
+<h1>Projeto</h1>
+
+
+<!-- Event capture é quando o efeito vai de fora pra dentro
+Event Bubble é quando o evento é propagado de dentro pra fora -->
+
+<!-- <ul class="tree">
+  <li id="backend">
+    Backend
+    <ul id="backendList">
+      <li id='app'>
+        app
+        <ul id="appList">
+          <li>produto.js</li>
+          <li>usuario.js</li>
+          <li>venda.js</li>
+        </ul>
+      </li>
+      <li id='config'>
+        config
+        <ul id='configList'>
+          <li>banco.js</li>
+          <li>rotas.js</li>
+          <li>servidor.js</li>
+        </ul>
+      </li>
+     
+    </ul>
+    <li id='frontend'>
+      frontend
+      <ul id='frontendList'>
+        <li id='public'>
+          public
+          <ul id='publicList'>
+            <li>app.css</li>
+            <li>app.js</li>
+            <li>index.html</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css" />
+
+<script>
+  function toogleItems(id) {
+    const e = window.event
+      const tag = document.getElementById(id)
+      if(tag.style.display === ''){
+        tag.style.display= 'none'
+      }else{
+      tag.style.display= ''
+      }
+      e.cancelBubble = true;
+  }
+
+  document.getElementById("backend").addEventListener("click", () =>  toogleItems('backendList'));
+  document.getElementById("app").addEventListener("click", () =>  toogleItems('appList'));
+  document.getElementById("config").addEventListener("click", () =>  toogleItems('configList'));
+  document.getElementById("frontend").addEventListener("click", () =>  toogleItems('frontendList'));
+  document.getElementById("public").addEventListener("click", () =>  toogleItems('publicList'));
+</script> -->
+
+<!-- <script>
+  function toogleItems(id) {
+    const e = window.event
+      const tag = document.getElementById(id)
+      if(tag.style.display === ''){
+        tag.style.display= 'none'
+      }else{
+      tag.style.display= ''
+      }
+      e.cancelBubble = true;
+  }
+
+  document.getElementById("backend").addEventListener("click", () =>  toogleItems('backendList'));
+  document.getElementById("app").addEventListener("click", () =>  toogleItems('appList'));
+  document.getElementById("config").addEventListener("click", () =>  toogleItems('configList'));
+  document.getElementById("frontend").addEventListener("click", () =>  toogleItems('frontendList'));
+  document.getElementById("public").addEventListener("click", () =>  toogleItems('publicList'));
+</script> -->
+
+<ul class="tree">
+  <li>
+    <span wm-folder>backend</span>
+    <ul>
+      <li>
+        <span wm-folder>app</span>
+        <ul>
+          <li>produto.js</li>
+          <li>usuario.js</li>
+          <li>venda.js</li>
+        </ul>
+      </li>
+      <li>
+        <span wm-folder>config</span>
+        <ul>
+          <li>banco.js</li>
+          <li>rotas.js</li>
+          <li>servidor.js</li>
+        </ul>
+      </li>
+     
+    </ul>
+    <li>
+      <span wm-folder>frontend</span>
+      <ul>
+        <li>
+          <span wm-folder>public</span>
+          <ul>
+            <li>app.css</li>
+            <li>app.js</li>
+            <li>index.html</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </li>
+</ul>
+
+<style>
+  .tree * {
+    list-style-type: none;
+}
+
+.tree li a {
+    color: #222;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+.tree ul {
+    padding-left: 25px;
+}
+
+ul.tree, .tree li {
+    padding-left: 0px;
+    padding-top: 5px;
+}
+
+ul.tree, ul.tree ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+} 
+
+ul.tree ul {
+    margin-left: 10px;
+}
+
+ul.tree li {
+    margin: 0;
+    margin: 0 9px;
+    padding: 0 7px;
+    border-left:1px solid rgb(100,100,100);
+
+}
+
+ul.tree li:last-child {
+    border-left:none;
+}
+
+ul.tree li:before {
+    position:relative;
+    top:-0.3em;
+    height:1em;
+    width:12px;
+    color:white;
+    border-bottom:1px solid rgb(100,100,100);
+    content:"";
+    display:inline-block;
+    left:-7px;
+}
+
+ul.tree li:last-child:before {
+    border-left:1px solid rgb(100,100,100);   
+}
+</style>
+
+<script>
+  document.querySelectorAll('[wm-folder]').forEach(folder => {
+    folder.onclick = function(e){
+      const ul = folder.nextElementSibling //pega o proximo elemento
+      const d = ul.style.display
+      ul.style.display = d === 'none' ? 'block' : 'none'
+    }
+  })
+</script>
